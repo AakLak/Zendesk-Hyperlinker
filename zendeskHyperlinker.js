@@ -19,11 +19,11 @@ var waitForEl = function(selector, callback) {
 };
 
 waitForEl('.ticket_submit_buttons', function() {
-    'use strict';
-    setInterval(function() {
+  'use strict';
+  setInterval(function() {
     var visibleReplyButton = $(".ticket_submit_buttons").filter(':visible')[0];
 
-    visibleReplyButton.addEventListener("mouseover", function(e){
+    visibleReplyButton.addEventListener("mouseover", function(e) {
       var editor = $(".zendesk-editor--rich-text-comment").filter(':visible')[0];
       editor.setAttribute('style', 'white-space: pre-wrap;');
       var replyText = editor.innerHTML;
@@ -35,7 +35,6 @@ waitForEl('.ticket_submit_buttons', function() {
       replyText = replyText.replace(/arrow/gi, '<a href="https://besuperfly.com/product/arrow-theme/">Arrow</a>');
       replyText = replyText.replace(/shado/gi, '<a href="https://besuperfly.com/product/shado-theme/">Shado</a>');
       replyText = replyText.replace(/header customizer/gi, '<a href="https://besuperfly.com/product/divi-header-customizer/">Header Customizer</a>');
-      //replyBox.innerHTML = reply;
       editor.innerHTML = replyText;
     });
   }, 5000);
